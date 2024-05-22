@@ -1,0 +1,8 @@
+Hello, my name is chetan kaushik, and I hold a Bachelor's degree in Computer Science, which I completed in 2019. After graduation, I decided to pursue my interest in government jobs and dedicated three years to preparation for various exams. I consider this period as a valuable learning experience that enhanced my discipline, problem-solving abilities, and time management skills.
+
+Despite my best efforts, I wasn't able to qualify for the government exams. However, I believe that every experience, whether successful or not, contributes to personal and professional growth. In the process, I developed a keen interest in programming and decided to channel my energy into the IT field.
+
+Currently, I am working as an IT support professional, where I have gained practical experience in troubleshooting and user support. Simultaneously, I am actively learning Data Structures and Algorithms in Java, aiming to transition into a role where I can leverage my technical skills more extensively.
+
+I am excited about the intersection of technology and problem-solving, and I am confident that the skills I am acquiring will be valuable in contributing to challenging projects. I am enthusiastic about the opportunity to apply my knowledge in a dynamic role and I am committed to continuous learning and growth in the field of software development."
+

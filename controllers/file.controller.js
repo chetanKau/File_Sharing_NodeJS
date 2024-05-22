@@ -1,7 +1,9 @@
 
 const multer = require('multer');
 const path = require('path')
-const {v4:uuidv4}=require('uuid')
+const { v4: uuidv4 } = require('uuid')
+
+const FileModel = require('../models/file.models')
 
 const uploadDirPath = path.join(__dirname, "..", 'files')
 // console.log(uploadDirPath);
@@ -13,27 +15,38 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         console.log(file.originalname);
-        const filePath =(file.originalname) +uuidv4(6) + path.extname(file.originalname)
-        cb(null, filePath)
+        const fileName = (file.originalname) + uuidv4() + path.extname(file.originalname)
+        cb(null, fileName)
     }
 
 })
 
 const upload = multer({
-    storage: storage
+    storage: storage,
 }).single("file")
 
 const uploadFile = async (req, res) => {
-    upload(req, res, (error) => {
+    upload(req, res, async (error) => {
         if (error) {
-            console.log("File upload process is having error");
+            console.log("File upload process is having error",error);
             return;
         }
 
-        console.log("File is uploaded successfully");
+        // console.log("File is uploaded successfully", req.file);
+
+        const newFile = new FileModel({
+            originalFileName: req.file.originalname,
+            newFileName: req.file.filename,
+            path: req.file.path,
+            fileSize: req.file.size
+        })
+
+        const newelyInsertedFile = await newFile.save();
+
         res.json({
             status: "success",
-            message: "File is uploaded successfully"
+            message: "File is uploaded successfully",
+            insertedFileId: newelyInsertedFile._id
         })
 
     })
